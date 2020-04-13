@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Category from "./pages/Category";
 import Footer from "./components/Footer";
+import NotFount from "./components/404";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/categorias" component={Category}/>
+                <Route exact component={NotFount}/>
             </Switch>
             <Footer/>
         </Router>
