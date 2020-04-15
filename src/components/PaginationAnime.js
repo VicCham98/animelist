@@ -2,7 +2,6 @@ import React from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const PaginationAnime = ({onClick, page, numbers}) => {
-
     return (
         <nav aria-label="Page navigation example">
             <Pagination
@@ -17,7 +16,7 @@ const PaginationAnime = ({onClick, page, numbers}) => {
                         First
                     </PaginationLink>
                 </PaginationItem>
-                <PaginationItem>
+                <PaginationItem className={page===0 ? "disabled" : null}>
                     <PaginationLink
                         href="/"
                         onClick={onClick}
@@ -42,7 +41,7 @@ const PaginationAnime = ({onClick, page, numbers}) => {
                         );
                     })
                 }
-                <PaginationItem>
+                <PaginationItem className={page===839 ? "disabled" : null}>
                     <PaginationLink
                         href="/"
                         onClick={onClick}
