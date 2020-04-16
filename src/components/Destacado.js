@@ -5,7 +5,7 @@ const Destacado = ({data}) => {
     return (
         <div>
             {/*<Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>*/}
-            <h4>Lo mas destacado!</h4>
+            <h4>Top Airing Anime!</h4>
             <ListGroup className="mt-3">
                 {
                     data.map((anime) => {

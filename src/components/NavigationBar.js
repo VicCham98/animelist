@@ -62,21 +62,21 @@ const NavigationBar = ({setSearch, search, onClick, onChange}) => {
                             <NavLink
                                 data-placement="bottom"
                                 to="/"
-                                title="Inicio"
+                                title="Home"
                                 tag={Link}
                                 onClick={() => {setSearch("")}}
                             >
-                                <i className="nc-icon nc-book-bookmark" /> Inicio
+                                <i className="nc-icon nc-box" /> Home
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink
                                 data-placement="bottom"
                                 to="/categorias"
-                                title="Categoria"
+                                title="Category"
                                 tag={Link}
                             >
-                                <i className="nc-icon nc-book-bookmark" /> Categorias
+                                <i className="nc-icon nc-book-bookmark" /> Category
                             </NavLink>
                         </NavItem>
                         <NavItem>
@@ -84,7 +84,7 @@ const NavigationBar = ({setSearch, search, onClick, onChange}) => {
                                 data-placement="bottom"
                                 href="https://www.facebook.com/victor.gut.q/"
                                 target="_blank"
-                                title="mi perfil"
+                                title="Facebook"
                             >
                                 <i className="nc-icon nc-circle-10"/>
                                 <p className="d-lg-none"> Facebook</p>

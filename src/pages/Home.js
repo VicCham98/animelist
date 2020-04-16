@@ -10,7 +10,7 @@ import Category from "./Category";
 import {Redirect} from "react-router-dom";
 
 const Home = ({search}) => {
-    const {data, loading, error} = GetAnime(`anime?page[limit]=20&page[offset]=0`);
+    const {data, loading, error} = GetAnime(`trending/anime`);
 
     if (loading)
         return <Loader/>;
@@ -31,7 +31,7 @@ const Home = ({search}) => {
                         <CarouselAnime
                             data={data}
                         />
-                        <h3>Animes Recientes</h3>
+                        <h3>Trending This Week</h3>
                         <CardAnime
                             data={data}
                             lg="3"
