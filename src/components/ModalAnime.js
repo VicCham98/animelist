@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
-const DetailAnime = ({animeData, liveDemo, setLiveDemo}) => {
+const ModalAnime = ({animeData, liveDemo, setLiveDemo}) => {
     return (
         <Fragment>
             <Modal className="modal-lg" isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
@@ -44,7 +44,7 @@ const DetailAnime = ({animeData, liveDemo, setLiveDemo}) => {
                     <div className="d-inline w-30 mx-auto">
                         <Button
                             className="btn-link"
-                            color="danger"
+                            color="success"
                             type="button"
                             onClick={() => setLiveDemo(false)}
                         >
@@ -57,4 +57,4 @@ const DetailAnime = ({animeData, liveDemo, setLiveDemo}) => {
     );
 };
 
-export default DetailAnime;
+export default ModalAnime;

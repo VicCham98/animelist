@@ -13,7 +13,7 @@ import {
     NavLink
 } from "reactstrap";
 
-const NavigationBar = ({search, onClick, onChange}) => {
+const NavigationBar = ({setSearch, search, onClick, onChange}) => {
     const [navbarCollapse, setNavbarCollapse] = useState(false);
 
     const toggleNavbarCollapse = () => {
@@ -64,6 +64,7 @@ const NavigationBar = ({search, onClick, onChange}) => {
                                 to="/"
                                 title="Inicio"
                                 tag={Link}
+                                onClick={() => {setSearch("")}}
                             >
                                 <i className="nc-icon nc-book-bookmark" /> Inicio
                             </NavLink>

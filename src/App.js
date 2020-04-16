@@ -33,12 +33,17 @@ function App() {
     <div>
         <Router>
             <NavigationBar
+                setSearch={setSearch}
                 search={search}
                 onClick={handleClick}
                 onChange={handleOnChange}
             />
             <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/">
+                    <Home
+                        search={search}
+                    />
+                </Route>
                 <Route exact path="/categorias">
                     <Category
                         search={search}

@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import {Card, CardImg, CardText, CardTitle, Col} from "reactstrap";
 import Row from "reactstrap/es/Row";
-import DetailAnime from "./DetailAnime";
+import ModalAnime from "./ModalAnime";
 
 const CardAnime = ({data, lg}) => {
     const [liveDemo, setLiveDemo] = useState(false);
@@ -40,7 +40,7 @@ const CardAnime = ({data, lg}) => {
                     })
                 }
             </Row>
-            <DetailAnime
+            <ModalAnime
                 animeData={animeData}
                 liveDemo={liveDemo}
                 setLiveDemo={setLiveDemo}
