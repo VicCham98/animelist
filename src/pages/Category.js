@@ -6,11 +6,17 @@ import CardAnime from "../components/CardAnime";
 import PaginationAnime from "../components/PaginationAnime";
 import GetAnime from "../hooks/GetAnime";
 
-const Category = () => {
+const Category = ({filter, search}) => {
     const [page, setPage] = useState(0);
     const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    const {data, loading, error} = GetAnime(`anime?page[limit]=18&page[offset]=${18*page}`);
+    const {data, loading, error} = GetAnime(`anime?${filter}page[limit]=18&page[offset]=${18*page}`);
     const topePage = 839;
+
+    // if (search==="") {
+    //     setFilter(`anime?page[limit]=18&page[offset]=${18*page}`);
+    // } else {
+    //     setFilter(`anime?page[limit]=18&page[offset]=${18*3}`);
+    // }
 
     if (loading)
         return <Loader/>;

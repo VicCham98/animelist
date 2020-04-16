@@ -35,7 +35,7 @@ const PaginationAnime = ({onClick, page, numbers}) => {
                                     id={number}
                                     pagina={page}
                                 >
-                                    {number}
+                                    {number+1}
                                 </PaginationLink>
                             </PaginationItem>
                         );

@@ -1,10 +1,20 @@
-import React  from 'react';
+import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import classnames from "classnames";
-import { Collapse, Container, Nav, Navbar, NavbarBrand, NavItem, NavLink} from "reactstrap";
+import {
+    Collapse,
+    Container,
+    Input,
+    InputGroup, InputGroupAddon, InputGroupText,
+    Nav,
+    Navbar,
+    NavbarBrand,
+    NavItem,
+    NavLink
+} from "reactstrap";
 
-const NavigationBar = () => {
-    const [navbarCollapse, setNavbarCollapse] = React.useState(false);
+const NavigationBar = ({search, onClick, onChange}) => {
+    const [navbarCollapse, setNavbarCollapse] = useState(false);
 
     const toggleNavbarCollapse = () => {
         setNavbarCollapse(!navbarCollapse);
@@ -36,11 +46,18 @@ const NavigationBar = () => {
                     </button>
                 </div>
                 <Collapse
-                    className="justify-content-end"
-                    navbar
                     isOpen={navbarCollapse}
+                    navbar
                 >
-                    <Nav navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem className="my-auto">
+                            <InputGroup>
+                                <Input type="text" onChange={onChange} id="busqueda" value={search} placeholder="Search..." />
+                                <InputGroupAddon addonType="prepend" onClick={onClick} tag="a" href="/">
+                                    <InputGroupText><i className="nc-icon nc-zoom-split"/></InputGroupText>
+                                </InputGroupAddon>
+                            </InputGroup>
+                        </NavItem>
                         <NavItem>
                             <NavLink
                                 data-placement="bottom"
