@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import classnames from "classnames";
 import {
     Collapse,
-    Container,
+    Container, Form, FormGroup,
     Input,
     InputGroup, InputGroupAddon, InputGroupText,
     Nav,
@@ -50,14 +50,16 @@ const NavigationBar = ({setSearch, search, onClick, onChange}) => {
                     navbar
                 >
                     <Nav className="ml-auto" navbar>
-                        <NavItem className="my-auto">
-                            <InputGroup>
-                                <Input type="text" onChange={onChange} id="busqueda" value={search} placeholder="Search..." />
-                                <InputGroupAddon addonType="prepend" onClick={onClick} tag="a" href="/">
-                                    <InputGroupText><i className="nc-icon nc-zoom-split"/></InputGroupText>
-                                </InputGroupAddon>
-                            </InputGroup>
-                        </NavItem>
+                        <Form className="form-inline justify-content-end">
+                            <FormGroup className="has-white">
+                                <InputGroup>
+                                    <Input type="text" onChange={onChange} value={search} placeholder="Search..." />
+                                    <InputGroupAddon addonType="prepend" onClick={onClick} tag="a" href="/">
+                                        <InputGroupText><i className="nc-icon nc-zoom-split"/></InputGroupText>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </FormGroup>
+                        </Form>
                         <NavItem>
                             <NavLink
                                 data-placement="bottom"
