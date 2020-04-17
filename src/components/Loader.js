@@ -7,9 +7,9 @@ const Loader = () => {
             <div className="circle"></div>
             <div className="circle"></div>
             <div className="circle"></div>
-            <div className="shadow"></div>
-            <div className="shadow"></div>
-            <div className="shadow"></div>
+            <div className="shadow-circle"></div>
+            <div className="shadow-circle"></div>
+            <div className="shadow-circle"></div>
             <span>Loading</span>
         </div>
     );

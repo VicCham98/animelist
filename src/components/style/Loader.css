@@ -42,7 +42,7 @@
     right:15%;
     animation-delay: .3s;
 }
-.shadow{
+.shadow-circle{
     width:20px;
     height:4px;
     border-radius: 50%;
@@ -53,10 +53,10 @@
     z-index: -1;
     left:15%;
     filter: blur(1px);
-    animation: shadow .5s alternate infinite ease;
+    animation: shadow-circle .5s alternate infinite ease;
 }
 
-@keyframes shadow{
+@keyframes shadow-circle{
     0%{
         transform: scaleX(1.5);
     }
@@ -69,11 +69,11 @@
         opacity: .4;
     }
 }
-.shadow:nth-child(4){
+.shadow-circle:nth-child(4){
     left: 45%;
     animation-delay: .2s
 }
-.shadow:nth-child(5){
+.shadow-circle:nth-child(5){
     left:auto;
     right:15%;
     animation-delay: .3s;
