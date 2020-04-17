@@ -1,22 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from "reactstrap";
 import Loader from "../components/Loader";
 import FatalError from "../components/500";
 import CardAnime from "../components/CardAnime";
 import PaginationAnime from "../components/PaginationAnime";
 import GetAnime from "../hooks/GetAnime";
+import Filter from "../components/Filter";
+import Axios from "axios";
+import URL from "../config";
 
-const Category = ({filter, search}) => {
+const Category = ({filter, search, onChange, value}) => {
     const [page, setPage] = useState(0);
     const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     const {data, loading, error} = GetAnime(`anime?${filter}page[limit]=18&page[offset]=${18*page}`);
     const topePage = 839;
+    const [dataFilter, setDataFilter] = useState([]);
 
-    // if (search==="") {
-    //     setFilter(`anime?page[limit]=18&page[offset]=${18*page}`);
-    // } else {
-    //     setFilter(`anime?page[limit]=18&page[offset]=${18*3}`);
-    // }
+    useEffect(() => {
+        const getRecentlyAnimes = async () => {
+            try {
+                let response = await Axios.get(`${URL}genres`);
+                let data = await response.data;
+                setDataFilter(data.data);
+                // setLoading(false);
+            } catch (e) {
+                // setLoading(false);
+                // setError(e);
+                console.log(e)
+            }
+        };
+        getRecentlyAnimes();
+    },[]);
 
     if (loading)
         return <Loader/>;
@@ -92,13 +106,15 @@ const Category = ({filter, search}) => {
     };
 
     return (
-        <Container>
+        <Container className="mt-4">
             <Row>
                 <Col>
-                    {/*<Filter*/}
-                    {/*    data={data}*/}
-                    {/*/>*/}
-                    <h3>Resultados...</h3>
+                    <Filter
+                        dataFilter={dataFilter}
+                        value={value}
+                        onChange={onChange}
+                    />
+                    <h3>Results...</h3>
                 </Col>
             </Row>
             <Row>

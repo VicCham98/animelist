@@ -1,19 +1,20 @@
-import React  from 'react';
-import {Input, ButtonGroup} from "reactstrap";
+import React, {Fragment}  from 'react';
+import './style/Filter.css'
 
-const Filter = ({data}) => {
+const Filter = ({dataFilter, onChange, value}) => {
     return (
-        <ButtonGroup>
-            <Input type="select" name="select" id="exampleSelect">
+        <Fragment>
+            <select value={value} className="custom-select" onChange={onChange}>
+                <option value="all" >All</option>
                 {
-                    data.map((genre) => {
+                    dataFilter.map((genre) => {
                         return(
-                            <option key={genre.id}>{genre.attributes.name}</option>
+                            <option key={genre.id} value={genre.attributes.slug}>{genre.attributes.name}</option>
                         )
                     })
                 }
-            </Input>
-        </ButtonGroup>
+            </select>
+        </Fragment>
     );
 };
 

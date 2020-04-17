@@ -6,7 +6,6 @@ import CarouselAnime from "../components/CarouselAnime";
 import Loader from "../components/Loader";
 import FatalError from "../components/500";
 import GetAnime from "../hooks/GetAnime";
-import Category from "./Category";
 import {Redirect} from "react-router-dom";
 
 const Home = ({search}) => {

@@ -13,10 +13,21 @@ import NotFount from "./components/404";
 function App() {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("");
+    const [value, setValue] = useState("all");
+
+    const handleOnChangeFilter = (e) =>{
+        setValue(e.target.value);
+        if (e.target.value==="all")
+            setFilter("");
+        else
+            setFilter(`filter[genres]=${e.target.value}&`);
+        setSearch("");
+    };
 
     const handleOnChange = (e) =>{
         setSearch(e.target.value);
         setFilter(`filter[text]=${e.target.value}&`);
+        setValue("all");
         if (e.target.value==="")
             setFilter("");
     };
@@ -25,6 +36,7 @@ function App() {
         e.preventDefault();
         setSearch(search);
         setFilter(`filter[text]=${search}&`);
+        setValue("all");
         if (search==="")
             setFilter("");
     };
@@ -46,6 +58,8 @@ function App() {
                 </Route>
                 <Route exact path="/categorias">
                     <Category
+                        value={value}
+                        onChange={handleOnChangeFilter}
                         search={search}
                         filter={filter}
                     />
