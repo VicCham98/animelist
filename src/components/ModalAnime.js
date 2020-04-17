@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react';
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {Link} from "react-router-dom";
 
-const ModalAnime = ({animeData, liveDemo, setLiveDemo}) => {
+const ModalAnime = ({animeData, liveDemo, setLiveDemo, setSearch}) => {
+    // alert(animeData.id);
     return (
         <Fragment>
             <Modal className="modal-lg" isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
@@ -46,7 +48,12 @@ const ModalAnime = ({animeData, liveDemo, setLiveDemo}) => {
                             className="btn-link"
                             color="success"
                             type="button"
-                            onClick={() => setLiveDemo(false)}
+                            tag={Link}
+                            to={`/anime/${animeData.id}`}
+                            onClick={() => {
+                                setLiveDemo(false);
+                                setSearch("");
+                            }}
                         >
                             More details
                         </Button>

@@ -9,7 +9,7 @@ import Filter from "../components/Filter";
 import Axios from "axios";
 import URL from "../config";
 
-const Category = ({filter, search, onChange, value}) => {
+const Category = ({filter, setSearch, onChange, value}) => {
     const [page, setPage] = useState(0);
     const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     const {data, loading, error} = GetAnime(`anime?${filter}page[limit]=18&page[offset]=${18*page}`);
@@ -129,6 +129,7 @@ const Category = ({filter, search, onChange, value}) => {
             <Row>
                 <Col>
                     <CardAnime
+                        setSearch={setSearch}
                         data={data}
                         lg="2"
                         pagination={true}

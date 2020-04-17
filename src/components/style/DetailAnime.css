@@ -1,0 +1,20 @@
+.cover-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+    position: relative;
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    width: 100%;
+}
+
+.back {
+    top: -50px;
+}

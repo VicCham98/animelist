@@ -3,7 +3,7 @@ import {Card, CardImg, CardText, CardTitle, Col} from "reactstrap";
 import Row from "reactstrap/es/Row";
 import ModalAnime from "./ModalAnime";
 
-const CardAnime = ({data, lg}) => {
+const CardAnime = ({data, lg, setSearch}) => {
     const [liveDemo, setLiveDemo] = useState(false);
     const [animeData, setAnimeData] = useState([]);
 
@@ -41,6 +41,7 @@ const CardAnime = ({data, lg}) => {
                 }
             </Row>
             <ModalAnime
+                setSearch={setSearch}
                 animeData={animeData}
                 liveDemo={liveDemo}
                 setLiveDemo={setLiveDemo}

@@ -8,7 +8,7 @@ import FatalError from "../components/500";
 import GetAnime from "../hooks/GetAnime";
 import {Redirect} from "react-router-dom";
 
-const Home = ({search}) => {
+const Home = ({search, setSearch}) => {
     const {data, loading, error} = GetAnime(`trending/anime`);
 
     if (loading)
@@ -32,6 +32,7 @@ const Home = ({search}) => {
                         />
                         <h3>Trending This Week</h3>
                         <CardAnime
+                            setSearch={setSearch}
                             data={data}
                             lg="3"
                         />

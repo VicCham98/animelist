@@ -9,6 +9,7 @@ import {
 import Category from "./pages/Category";
 import Footer from "./components/Footer";
 import NotFount from "./components/404";
+import DetailAnime from "./pages/DetailAnime";
 
 function App() {
     const [search, setSearch] = useState("");
@@ -53,6 +54,7 @@ function App() {
             <Switch>
                 <Route exact path="/">
                     <Home
+                        setSearch={setSearch}
                         search={search}
                     />
                 </Route>
@@ -60,8 +62,13 @@ function App() {
                     <Category
                         value={value}
                         onChange={handleOnChangeFilter}
-                        search={search}
+                        setSearch={setSearch}
                         filter={filter}
+                    />
+                </Route>
+                <Route exact path="/anime/:id">
+                    <DetailAnime
+                        search={search}
                     />
                 </Route>
                 <Route exact component={NotFount}/>
