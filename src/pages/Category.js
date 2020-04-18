@@ -11,7 +11,7 @@ import URL from "../config";
 
 const Category = ({filter, setSearch, onChange, value}) => {
     const [page, setPage] = useState(0);
-    const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    const [numbers, setNumbers] = useState([0, 1, 2, 3, 4]);
     const {data, loading, error} = GetAnime(`anime?${filter}page[limit]=18&page[offset]=${18*page}`);
     const topePage = 839;
     const [dataFilter, setDataFilter] = useState([]);
@@ -43,28 +43,28 @@ const Category = ({filter, setSearch, onChange, value}) => {
     const optionPaginatorNumber = (page, value) => {
         switch (value) {
             case 'first':
-                for (let i=0; i<10; i++){
+                for (let i=0; i<5; i++){
                     auxNumb[i]=i;
                 }
                 break;
             case 'previous':
-                if (page < 10){
-                    page = 10;
+                if (page < 5){
+                    page = 5;
                 }
-                page = page - 10;
-                for (let i=0; i<10; i++){
+                page = page - 5;
+                for (let i=0; i<5; i++){
                     auxNumb[i]=page+i;
                 }
                 break;
             case 'next':
                 page += 1;
-                for (let i=0; i<10; i++){
+                for (let i=0; i<5; i++){
                     auxNumb[i]=page+i;
                 }
                 break;
             case 'last':
-                let top=topePage-10;
-                for (let i=0; i<=10; i++){
+                let top=topePage-5;
+                for (let i=0; i<=5; i++){
                     auxNumb[i]=top+i;
                 }
                 break;
